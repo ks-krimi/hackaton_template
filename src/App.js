@@ -1,5 +1,6 @@
+import { Routes } from './routes'
 function App() {
-  return <p>App</p>
+  return <Routes />
 }
 
 export default App
