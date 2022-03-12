@@ -1,18 +1,20 @@
-import React from 'react'
-import { ThemeProvider } from '@material-ui/core'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Layout } from '../components/layout'
 import { Home, NotFound } from '../components/pages'
 
 function AllRoutes() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<Layout />}>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path="/404">
+          <Route index element={<NotFound />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/404" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
