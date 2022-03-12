@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Layout } from '../components/layout'
+import Layout from '../components/layout/DashboardLayout'
 import { Home, NotFound } from '../components/pages'
 
 function AllRoutes() {

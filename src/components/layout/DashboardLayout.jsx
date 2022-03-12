@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { CssBaseline, makeStyles } from '@material-ui/core'
+import AppBar from '../appBar/CustomAppBar'
 
 const APP_BAR_MOBILE = 64
 const APP_BAR_DESKTOP = 92
@@ -25,10 +26,11 @@ const useStyle = makeStyles((theme) => ({
   }
 }))
 
-function Layout() {
+const DashboardLayout = () => {
   const classes = useStyle()
   return (
     <div className={classes.rootStyle}>
+      <AppBar />
       <main className={classes.mainStyle}>
         <Outlet />
       </main>
@@ -37,4 +39,4 @@ function Layout() {
   )
 }
 
-export default Layout
+export default DashboardLayout
