@@ -1,5 +1,5 @@
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
+import { useMediaQuery } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles'
 
 const useResponsive = (query, key, start, end) => {
   const theme = useTheme()

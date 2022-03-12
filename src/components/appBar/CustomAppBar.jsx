@@ -1,13 +1,9 @@
 import React from 'react'
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  alpha
-} from '@material-ui/core'
+import { AppBar, Toolbar, IconButton, alpha } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import { useResponsive } from '../../hooks'
 
 const DRAWER_WIDTH = 280
 const APPBAR_MOBILE = 64
@@ -34,17 +30,25 @@ const ToolbarStyle = withStyles(({ breakpoints, spacing }) => ({
     }
   }
 }))(Toolbar)
+CustomAppBar.prototype = {
+  onOpenDrawer: PropTypes.func
+}
 
-function CustomAppBar() {
+function CustomAppBar({ onOpenDrawer }) {
+  const isDesktop = useResponsive('up', 'lg')
+
   return (
     <RootStyle>
       <ToolbarStyle>
-        <IconButton edge="start" aria-label="open drawer">
-          <Menu />
-        </IconButton>
-        <Typography color="textSecondary" variant="h6">
-          Logo
-        </Typography>
+        {!isDesktop && (
+          <IconButton
+            edge="start"
+            aria-label="open drawer"
+            onClick={() => onOpenDrawer()}
+          >
+            <Menu />
+          </IconButton>
+        )}
       </ToolbarStyle>
     </RootStyle>
   )

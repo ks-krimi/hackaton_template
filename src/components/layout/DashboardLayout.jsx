@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { CssBaseline, makeStyles } from '@material-ui/core'
 import AppBar from '../appBar/CustomAppBar'
+import { Drawer } from '../drawer'
 
 const APP_BAR_MOBILE = 64
 const APP_BAR_DESKTOP = 92
@@ -28,9 +29,12 @@ const useStyle = makeStyles((theme) => ({
 
 const DashboardLayout = () => {
   const classes = useStyle()
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className={classes.rootStyle}>
-      <AppBar />
+      <AppBar onOpenDrawer={() => setIsOpen(true)} />
+      <Drawer isOpenDrawer={isOpen} setIsOpenDrawer={setIsOpen} />
       <main className={classes.mainStyle}>
         <Outlet />
       </main>
