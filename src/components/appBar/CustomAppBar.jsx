@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, alpha, Box } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { SearchBar } from '../searchBar'
 import { useResponsive } from '../../hooks'
 import { Profile } from '../account'
 
@@ -50,9 +51,9 @@ function CustomAppBar({ onOpenDrawer }) {
             <Menu />
           </IconButton>
         )}
+        <SearchBar />
         {/* box separator */}
         <Box style={{ flex: '1' }} />
-        {/* TODO: account */}
         <Profile />
       </ToolbarStyle>
     </RootStyle>
