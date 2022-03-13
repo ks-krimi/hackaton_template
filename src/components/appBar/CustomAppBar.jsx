@@ -66,6 +66,7 @@ function CustomAppBar({ onOpenDrawer, isLoggedIn = false }) {
             <Box style={{ flex: '1' }} />
           </>
         )}
+        {/* TODO: SearchBar */}
       </ToolbarStyle>
     </RootStyle>
   )
