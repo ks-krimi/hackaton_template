@@ -23,7 +23,7 @@ export default function Profile() {
   return (
     <>
       <ButtonBase focusRipple onClick={handleClick}>
-        <CustomeAvatar>N</CustomeAvatar>
+        <CustomeAvatar src="/static/assets/me.png" />
       </ButtonBase>
       <CustomeMenu
         anchorEl={anchorEl}
@@ -43,6 +43,7 @@ export default function Profile() {
 
 const CustomeAvatar = withStyles((theme) => ({
   root: {
+    border: `2px solid ${theme.palette.primary.dark}`,
     '&::after': {
       position: 'absolute',
       top: 0,
@@ -51,7 +52,7 @@ const CustomeAvatar = withStyles((theme) => ({
       height: '100%',
       borderRadius: '50%',
       animation: '$ripple 1.2s infinite ease-in-out',
-      border: `2.4px solid ${alpha(theme.palette.primary.light, 0.5)}`,
+      border: `2.4px solid ${theme.palette.primary.light}`,
       content: '""'
     }
   },
