@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, alpha } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { SearchBar } from '../searchBar'
 import { useResponsive } from '../../hooks'
 
 const DRAWER_WIDTH = 280
@@ -49,6 +50,8 @@ function CustomAppBar({ onOpenDrawer }) {
             <Menu />
           </IconButton>
         )}
+        {/* TODO: SearchBar */}
+        <SearchBar />
       </ToolbarStyle>
     </RootStyle>
   )
