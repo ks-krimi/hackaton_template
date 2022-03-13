@@ -1,9 +1,10 @@
 import React from 'react'
-import { AppBar, Toolbar, IconButton, alpha } from '@material-ui/core'
+import { AppBar, Toolbar, IconButton, alpha, Box } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import { useResponsive } from '../../hooks'
+import { Profile } from '../account'
 
 const DRAWER_WIDTH = 280
 const APPBAR_MOBILE = 64
@@ -49,6 +50,10 @@ function CustomAppBar({ onOpenDrawer }) {
             <Menu />
           </IconButton>
         )}
+        {/* box separator */}
+        <Box style={{ flex: '1' }} />
+        {/* TODO: account */}
+        <Profile />
       </ToolbarStyle>
     </RootStyle>
   )
