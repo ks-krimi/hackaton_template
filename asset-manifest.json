@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/hackaton_template/static/css/main.eb30035e.css",
+    "main.js": "/hackaton_template/static/js/main.05b32767.js",
+    "static/js/787.6a910d0b.chunk.js": "/hackaton_template/static/js/787.6a910d0b.chunk.js",
+    "static/media/Poppins-Regular.ttf": "/hackaton_template/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-SemiBold.ttf": "/hackaton_template/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
+    "index.html": "/hackaton_template/index.html",
+    "main.eb30035e.css.map": "/hackaton_template/static/css/main.eb30035e.css.map",
+    "main.05b32767.js.map": "/hackaton_template/static/js/main.05b32767.js.map",
+    "787.6a910d0b.chunk.js.map": "/hackaton_template/static/js/787.6a910d0b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb30035e.css",
+    "static/js/main.05b32767.js"
+  ]
+}
