@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { Button, TextField } from '../controlles'
+import { Checkbox, FormControlLabel } from '@material-ui/core'
 
 // formik validation
 const INITIAL_FORM_STATE = { email: '', password: '' }
@@ -29,9 +30,13 @@ function SignIn() {
       validationSchema={FORM_VALIDATION}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off">
+      <Form
+        autoComplete="off"
+        style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}
+      >
         <TextField label="email" name="email" />
         <TextField label="password" name="password" type="password" />
+        <FormControlLabel control={<Checkbox />} label="Remember me" />
         <Button type="submit">Connexion</Button>
       </Form>
     </Formik>

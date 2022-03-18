@@ -6,22 +6,24 @@ import PropTypes from 'prop-types'
 import { SearchBar } from '../searchBar'
 import { useResponsive } from '../../hooks'
 import { Profile } from '../account'
+import Logo from '../logo'
 
 const DRAWER_WIDTH = 280
 const APPBAR_MOBILE = 64
 const APPBAR_DESKTOP = 92
 
 const RootStyle = withStyles(({ palette, breakpoints }) => ({
-  root: {
+  root: ({ isLoggedIn }) => ({
     boxShadow: 'none',
-    backdropFilter: 'blur(6px)',
-    WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
+    backdropFilter: 'blur(2px)',
+    WebkitBackdropFilter: 'blur(2px)', // Fix on Mobile
     backgroundColor: alpha(palette.background.default, 0.72),
     [breakpoints.up('lg')]: {
-      width: `calc(100% - ${DRAWER_WIDTH + 1}px)`
+      /* isLogin boolean: true si on est authentifiers sinon false */
+      width: isLoggedIn ? `calc(100% - ${DRAWER_WIDTH + 1}px)` : '100%'
     }
-  }
-}))(AppBar)
+  })
+}))((props) => <AppBar {...props} />)
 
 const ToolbarStyle = withStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -36,25 +38,34 @@ CustomAppBar.prototype = {
   onOpenDrawer: PropTypes.func
 }
 
-function CustomAppBar({ onOpenDrawer }) {
+function CustomAppBar({ onOpenDrawer, isLoggedIn = false }) {
   const isDesktop = useResponsive('up', 'lg')
 
   return (
-    <RootStyle>
+    <RootStyle isLoggedIn={isLoggedIn}>
       <ToolbarStyle>
-        {!isDesktop && (
-          <IconButton
-            edge="start"
-            aria-label="open drawer"
-            onClick={() => onOpenDrawer()}
-          >
-            <Menu />
-          </IconButton>
+        {isLoggedIn ? (
+          <>
+            {!isDesktop && (
+              <IconButton
+                edge="start"
+                aria-label="open drawer"
+                onClick={() => onOpenDrawer()}
+              >
+                <Menu />
+              </IconButton>
+            )}
+            <SearchBar />
+            {/* box separator */}
+            <Box style={{ flex: '1' }} />
+            <Profile />
+          </>
+        ) : (
+          <>
+            <Logo />
+            <Box style={{ flex: '1' }} />
+          </>
         )}
-        <SearchBar />
-        {/* box separator */}
-        <Box style={{ flex: '1' }} />
-        <Profile />
       </ToolbarStyle>
     </RootStyle>
   )

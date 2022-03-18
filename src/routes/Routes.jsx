@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Layout from '../components/layout/DashboardLayout'
-import { Home, NotFound } from '../components/pages'
+import { Layout, AuthLayout } from '../components/layout'
+import { Home, Login, NotFound } from '../components/pages'
 
 function AllRoutes() {
   return (
@@ -8,6 +8,9 @@ function AllRoutes() {
       <Routes>
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Home />} />
+        </Route>
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="/404">
           <Route index element={<NotFound />} />

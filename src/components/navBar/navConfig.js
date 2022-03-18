@@ -14,13 +14,13 @@ const navbarConfig = [
   },
   {
     title: 'login',
-    path: '/login',
+    path: '/auth/login',
     icon: <AccountCircle />,
     activeIcon: <AccountCircle color="primary" />
   },
   {
     title: 'register',
-    path: '/register',
+    path: '/auth/register',
     icon: <PersonAdd />,
     activeIcon: <PersonAdd color="primary" />
   },
