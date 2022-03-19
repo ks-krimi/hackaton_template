@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Container, makeStyles, Typography, Link } from '@material-ui/core'
-import { SignIn } from '../formulaire'
+import { SignUp } from '../formulaire'
 import { useResponsive } from '../../hooks'
 
 const useStyle = makeStyles((theme) => ({
@@ -28,7 +28,7 @@ const useStyle = makeStyles((theme) => ({
   }
 }))
 
-function Login() {
+function Register() {
   const classes = useStyle()
   const isTablette = useResponsive('up', 'md')
 
@@ -37,28 +37,28 @@ function Login() {
       {isTablette && (
         <div className={classes.image}>
           <img
-            src="/static/illustrations/illustration_login.svg"
-            alt="login illustration"
+            src="/static/illustrations/illustration_register.svg"
+            alt="register illustration"
           />
         </div>
       )}
       <div className={classes.form}>
         <Typography variant="h5" color="textSecondary" gutterBottom>
-          Sign in to app name
+          Get started absolutely free.
         </Typography>
         <Typography color="textSecondary" style={{ marginBottom: '2.5em' }}>
-          Enter your details below.
+          Free forever. No credit card needed.
         </Typography>
-        <SignIn />
+        <SignUp />
         <Typography variant="body2" align="center" style={{ margin: '1em 0' }}>
-          Don’t have an account?&nbsp;
+          Already have an account?&nbsp;
           <Link
             variant="subtitle2"
-            to="/auth/register"
+            to="/auth/login"
             underline="hover"
             component={RouterLink}
           >
-            Get started
+            Login
           </Link>
         </Typography>
       </div>
@@ -66,4 +66,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register
