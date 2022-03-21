@@ -12,7 +12,7 @@ function AllRoutes() {
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
         </Route>
-        <Route path="/404">
+        <Route path="/404" element={<AuthLayout/>}>
           <Route index element={<NotFound />} />
         </Route>
         <Route path="*" element={<Navigate to="/404" replace />} />
