@@ -1,1 +1,1 @@
-export * from './muiTheme'
+export { default as MuiTheme } from './muiTheme'

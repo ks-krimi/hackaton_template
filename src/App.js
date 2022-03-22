@@ -1,6 +1,12 @@
 import { Routes } from './routes'
+import { MuiTheme } from './theme'
+
 function App() {
-  return <Routes />
+  return (
+    <MuiTheme>
+      <Routes />
+    </MuiTheme>
+  )
 }
 
 export default App
