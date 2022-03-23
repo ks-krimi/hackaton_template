@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { CssBaseline, makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import { AppBar } from '../appBar'
 import { Drawer } from '../drawer'
 
@@ -38,7 +38,6 @@ const DashboardLayout = () => {
       <main className={classes.mainStyle}>
         <Outlet />
       </main>
-      <CssBaseline />
     </div>
   )
 }
