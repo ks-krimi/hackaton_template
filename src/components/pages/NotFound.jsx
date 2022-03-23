@@ -1,5 +1,12 @@
-import { Box, Container, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
+import {
+  Box,
+  Container,
+  makeStyles,
+  styled,
+  Typography
+} from '@material-ui/core'
+import { Page as WithHelmet } from '../page'
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -25,11 +32,13 @@ const useStyle = makeStyles((theme) => ({
   }
 }))
 
+const Page = styled(WithHelmet)(() => {})
+
 function NotFound() {
   const classes = useStyle()
 
   return (
-    <Container className={classes.root}>
+    <Container component={Page} title="Page not found" className={classes.root}>
       <Box className={classes.box}>
         <img
           src="/static/illustrations/illustration_page_not_found.png"

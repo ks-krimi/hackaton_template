@@ -1,13 +1,20 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { Typography, styled } from '@material-ui/core'
+import { Page as WithHelmet } from '../page'
+
+const Page = styled(WithHelmet)((theme) => ({
+  padding: '1em',
+  display: 'flex',
+  gap: '1em'
+}))
 
 function Home() {
   return (
-    <div style={{ padding: '1em', display: 'flex', gap: '1em' }}>
+    <Page title="Dashboard">
       <Typography variant="h6" color="textSecondary">
         Hi, Welcome to the dashboard
       </Typography>
-    </div>
+    </Page>
   )
 }
 

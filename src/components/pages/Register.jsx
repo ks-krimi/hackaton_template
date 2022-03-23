@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { Container, makeStyles, Typography, Link } from '@material-ui/core'
+import {
+  Container,
+  makeStyles,
+  Typography,
+  Link,
+  styled
+} from '@material-ui/core'
 import { SignUp } from '../formulaire'
 import { useResponsive } from '../../hooks'
+import { Page as WithHelmet } from '../page'
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -28,12 +35,14 @@ const useStyle = makeStyles((theme) => ({
   }
 }))
 
+const Page = styled(WithHelmet)(() => {})
+
 function Register() {
   const classes = useStyle()
   const isTablette = useResponsive('up', 'md')
 
   return (
-    <Container className={classes.root}>
+    <Container component={Page} title="Register" className={classes.root}>
       {isTablette && (
         <div className={classes.image}>
           <img
