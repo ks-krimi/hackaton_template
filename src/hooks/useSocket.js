@@ -1,18 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { io } from 'socket.io-client'
 
 function useSocket() {
+  const [data, setData] = useState({ id: '', notification: '' })
+
   useEffect(() => {
-    const socket = io('http://192.168.43.160:8000')
+    const socket = io('http://localhost:8000')
 
     socket.on('connect', () => {
-      console.log('On connection', socket.id)
+      setData((data) => ({ ...data, id: socket.id }))
     })
 
-    socket.on('message', ({ type, data }) => {
-      console.log('On message', JSON.parse(data))
+    socket.on('notification', ({ message }) => {
+      setData((data) => ({ ...data, notification: message }))
     })
   }, [])
+
+  return data
 }
 
 export default useSocket

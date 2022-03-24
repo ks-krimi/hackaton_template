@@ -10,12 +10,21 @@ const Page = styled(WithHelmet)((theme) => ({
 }))
 
 function Home() {
-  useSocket()
+  const { id, notification } = useSocket()
+
   return (
-    <Page title="Dashboard">
-      <Typography variant="h6" color="textSecondary">
-        Hi, Welcome to the dashboard
+    <Page
+      title="Dashboard"
+      style={{ display: 'flex', flexDirection: 'column' }}
+    >
+      <Typography variant="body1" color="textSecondary">
+        Hello, this is your socket ID: {id}
       </Typography>
+      {notification && (
+        <Typography variant="caption" color="textSecondary">
+          Notification: {notification}
+        </Typography>
+      )}
     </Page>
   )
 }
