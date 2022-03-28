@@ -1,7 +1,8 @@
 import React from 'react'
-import { Typography, styled } from '@material-ui/core'
+import { styled } from '@material-ui/core'
 import { Page as WithHelmet } from '../page'
-import { useSocket } from '../../hooks'
+import { LiveProvider } from '../../context'
+import { Video } from '../live'
 
 const Page = styled(WithHelmet)((theme) => ({
   padding: '1em',
@@ -10,22 +11,15 @@ const Page = styled(WithHelmet)((theme) => ({
 }))
 
 function Home() {
-  const { id, notification } = useSocket()
-
   return (
-    <Page
-      title="Dashboard"
-      style={{ display: 'flex', flexDirection: 'column' }}
-    >
-      <Typography variant="body1" color="textSecondary">
-        Hello, this is your socket ID: {id}
-      </Typography>
-      {notification && (
-        <Typography variant="caption" color="textSecondary">
-          Notification: {notification}
-        </Typography>
-      )}
-    </Page>
+    <LiveProvider>
+      <Page
+        title="Dashboard"
+        style={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <Video />
+      </Page>
+    </LiveProvider>
   )
 }
 
